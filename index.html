@@ -1,69 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         * {
             margin: 0;
             padding: 0;
         }
         button {
-            cursor: pointer;
-            padding: 10px;
-            border: 0;
-            background-color: #0d6efd;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 18px;
+            margin: 10px 0px 20px 00px;            
+            padding: 10px 10px;
         }
-        #blank {
-            padding: 10px;
+        div {
+            padding: 20px;
         }
-        #circle {
+        div > span {
+            display: inline-block;                     
+            transition-duration: 5s;
+            transition-timing-function: linear;
+            transition-property: transform, top, left;            
+            top: 6%;
+            left: 1px;
             position: absolute;
             padding: 50px;
-            background-color: #6c757d;
             border-radius: 50%;
-            display: inline-block;
-            transition-timing-function: linear;
-            transition: 5s
+            background-color: #0d6efd;
         }
-        button:hover~#circle {                       
-            transition: 1ms;
-            background-color: black;
+        button:nth-child(1):hover ~ div > span, button:nth-child(2):hover ~ div > span{
+            background-color: #0b5ed7;
         }
-        button#goX:active~#circle {
-            transition: 5s;
-            margin-left: 100%;
+        button:nth-child(1):active ~ div > span {
             transform: translate(-100px, 0px);
-        }        
-        button#goY:active~#circle {
-            transition: 5s;
-            margin-top: 863px;
+            left: 99.9%;
+        }
+        button:nth-child(2):active ~ div > span {
+            top: 99.9%;
             transform: translate(0px, -100px);
         }
-
-        button#goXY:active~#circle {
-            transition: 5s;
-            margin-left: 100%;
-            margin-top: 863px;
+        button:nth-child(3):active ~ div > span {
+            top: 99.9%;
+            left: 99.9%;
             transform: translate(-100px, -100px);
         }
-        
     </style>
 </head>
 <body>
-    <div id="wrap">
-        <div>
-            <button id="goX">가로로 움직이기</button>
-            <button id="goY">세로로 움직이기</button>
-            <button id="goXY">두방향 움직이기</button>
-            <div id="blank"></div>
-            <span id="circle"></span>
-        </div>
+    <button type="button" class="btn btn-primary">가로로 움직이기</button>
+    <button type="button" class="btn btn-primary">세로로 움직이기</button>
+    <button type="button" class="btn btn-primary">둘다 움직이기</button>
+    <div>
+        <span></span>
     </div>
 </body>
 </html>
