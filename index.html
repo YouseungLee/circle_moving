@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- https://github.com/YouseungLee/circle_moving -->
     <meta charset="UTF-8">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,9 +18,7 @@
             padding: 20px;
         }
         div > span {
-            transform: translate(0, 0px);
-            display: inline-block;                     
-            transition-duration: 5s;
+            display: inline-block; 
             transition-timing-function: linear;
             transition-property: transform, top, left;            
             top: 6%;
@@ -28,13 +27,14 @@
             padding: 50px;
             border-radius: 50%;
             background-color: #0d6efd;
+            transition-duration: 5s;
         }
         button:nth-child(1):hover ~ div > span, button:nth-child(2):hover ~ div > span{
             background-color: #0b5ed7;
         }
         button:nth-child(1):active ~ div > span {
             transform: translate(-100px, 0px);
-            left: 100%;
+            left: 99%;
         }
         button:nth-child(2):active ~ div > span {
             top: 100%;
