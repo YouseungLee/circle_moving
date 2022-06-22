@@ -6,19 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img {
-            width: 500px;
-            transition-duration: 1s;
-            transition-timing-function: linear;
-            transition-property: inherit;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        img:hover {
-            
-            filter: blur(10px) grayscale(100%);
-        }        
+        button {
+            padding: 10px;
+            border: 0;
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        #blank {
+            padding: 10px;
+        }
+        #circle {
+            position: absolute;
+            padding: 50px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        button#goX:active~#circle {
+            transition: 5s;
+            margin-left: 100%;
+            transform: translate(-100px, 0px);
+        }
+
+        button#goY:active~#circle {
+            transition: 5s;
+            margin-top: 863px;
+            transform: translate(0px, -100px);
+        }
+
+        button#goXY:active~#circle {
+            transition: 5s;
+            margin-left: 100%;
+            margin-top: 863px;
+            transform: translate(-100px, -100px);
+        }
+        button:hover~#circle {
+            transition: 1ms;
+            background-color: black;
+        }
     </style>
 </head>
 <body>
-    <img src="./handsome.jpg" alt="">
+    <div id="wrap">
+        <div>
+            <button id="goX">가로로 움직이기</button>
+            <button id="goY">세로로 움직이기</button>
+            <button id="goXY">두방향 움직이기</button>
+            <div id="blank"></div>
+            <span id="circle"></span>
+        </div>
+    </div>
 </body>
 </html>
