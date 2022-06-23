@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <!-- https://github.com/YouseungLee/circle_moving -->
     <meta charset="UTF-8">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         * {
             margin: 0;
             padding: 0;
         }
+
         button {
-            margin: 10px 0px 20px 10px;            
+            margin: 10px 0px 20px 10px;
             padding: 10px 10px;
         }
+
         div {
             padding: 20px;
         }
-        div > span {
-            display: inline-block; 
+
+        div>span:nth-child(1) {
+            display: inline-block;
             transition-timing-function: linear;
-            transition-property: transform, top, left;            
+            transition-property: transform, top, left;
             top: 6%;
             left: 10px;
             position: absolute;
@@ -29,30 +34,81 @@
             background-color: #0d6efd;
             transition-duration: 5s;
         }
-        button:nth-child(1):hover ~ div > span, button:nth-child(2):hover ~ div > span{
+
+        button:nth-child(1):hover~div>span:nth-child(1),
+        button:nth-child(2):hover~div>span:nth-child(1) {
             background-color: #0b5ed7;
         }
-        button:nth-child(1):active ~ div > span {
+
+        button:nth-child(1):active~div>span:nth-child(1) {
             transform: translate(-100px, 0px);
             left: 99%;
         }
-        button:nth-child(2):active ~ div > span {
+
+        button:nth-child(2):active~div>span:nth-child(1) {
             top: 100%;
             transform: translate(0px, -100px);
         }
-        button:nth-child(3):active ~ div > span {
+
+        button:nth-child(3):active~div>span:nth-child(1) {
             top: 100%;
             left: 100%;
             transform: translate(-100px, -100px);
         }
+        /* 원 등속 운동 CSS */
+        
+        /* 원 회전 CSS */
+        div>span:nth-child(2) {
+            position: absolute;
+            left: 40%;
+            top: 30%;
+            display: inline-block;
+            padding: 200px;
+            border-radius: 50%;
+            transition-duration: 1s;            
+            transition-timing-function: linear;
+        }
+        
+        div>span>span {
+            position: absolute;
+            padding: 50px;
+            border-radius: 50%;
+            background-color: aqua;
+            left: 50%;
+            top: 50%;         
+            transition-duration: 1s;   
+        }
+        div>span>span:nth-child(1) {
+            
+            transform: translate(-50%, -200%);
+            background-color: red;
+        }
+        div>span>span:nth-child(2) {
+            transform-origin: top left;
+            transform: translate(-50%, 100%);
+            background-color: green;
+        }
+        button:nth-child(4):active ~ div>span:nth-child(2) > span:nth-child(1){
+            
+        }
+        button:nth-child(4):active ~ div>span:nth-child(2){
+            transform: rotate(180deg);
+        }
     </style>
 </head>
+
 <body>
     <button type="button" class="btn btn-primary">가로로 움직이기</button>
     <button type="button" class="btn btn-primary">세로로 움직이기</button>
     <button type="button" class="btn btn-primary">둘다 움직이기</button>
+    <button type="button" class="btn btn-primary">원 돌리기</button>
     <div>
         <span></span>
+        <span>
+            <span></span>
+            <span></span>
+        </span>
     </div>
 </body>
+
 </html>
