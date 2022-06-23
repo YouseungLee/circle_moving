@@ -55,43 +55,44 @@
             left: 100%;
             transform: translate(-100px, -100px);
         }
+
         /* 원 등속 운동 CSS */
-        
+
         /* 원 회전 CSS */
         div>span:nth-child(2) {
             position: absolute;
-            left: 40%;
+            left: 39%;
             top: 30%;
             display: inline-block;
             padding: 200px;
             border-radius: 50%;
-            transition-duration: 1s;            
+            transition-duration: 1s;
             transition-timing-function: linear;
         }
-        
+
         div>span>span {
             position: absolute;
             padding: 50px;
             border-radius: 50%;
             background-color: aqua;
             left: 50%;
-            top: 50%;         
-            transition-duration: 1s;   
+            top: 50%;
+            transition-duration: 1s;
         }
+
         div>span>span:nth-child(1) {
-            
+
             transform: translate(-50%, -200%);
             background-color: red;
         }
+
         div>span>span:nth-child(2) {
             transform-origin: top left;
             transform: translate(-50%, 100%);
             background-color: green;
         }
-        button:nth-child(4):active ~ div>span:nth-child(2) > span:nth-child(1){
-            
-        }
-        button:nth-child(4):active ~ div>span:nth-child(2){
+
+        button:nth-child(4):active~div>span:nth-child(2) {
             transform: rotate(180deg);
         }
     </style>
